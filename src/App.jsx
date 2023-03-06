@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       {data.animals.map((animal) => (
-        <div kay={animal.id}>
+        <div kay={(index, animal.name)}>
           <div className="card">
             <p>{animal.name}</p>
             <img src={animal.thumb.url} alt="" />
