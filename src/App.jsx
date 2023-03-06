@@ -2,6 +2,10 @@
 // import reactLogo from './assets/react.svg'
 import "./App.css"
 import { gql, useQuery } from "@apollo/client"
+import PhotoAlbum from "react-photo-album"
+// photos
+import photos from "./Photos/photos"
+const Photos = () => <PhotoAlbum photos={photos} layout="masonry" />
 
 const ANIMALS = gql`
   query MyQuery {
@@ -17,8 +21,7 @@ const ANIMALS = gql`
 `
 
 function App() {
-  console.log(useQuery(ANIMALS))
-
+  // console.log(useQuery(ANIMALS))
   const { data, loading, error } = useQuery(ANIMALS)
 
   if (loading) return "loading..."
@@ -26,14 +29,20 @@ function App() {
 
   return (
     <>
-      {data.animals.map((animal) => (
-        <div kay={(index, animal.name)}>
-          <div className="card">
-            <p>{animal.name}</p>
-            <img src={animal.thumb.url} alt="" />
+      <div>
+        <Photos />
+      </div>
+
+      <div>
+        {data.animals.map((animal) => (
+          <div kay={animal.id}>
+            <div className="card">
+              <p>{animal.name}</p>
+              <img src={animal.thumb.url} alt="" width="500" />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </>
   )
 }

@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.10",
+    "graphql": "^16.6.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-photo-album": "^2.0.2",
+    "yet-another-react-lightbox": "^2.5.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
